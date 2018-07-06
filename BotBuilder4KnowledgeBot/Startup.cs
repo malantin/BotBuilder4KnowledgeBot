@@ -30,7 +30,7 @@ namespace BotBuilder4KnowledgeBot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddBot<EchoBot>(options =>
+            services.AddBot<KnowledgeBot>(options =>
             {
                 options.CredentialProvider = new ConfigurationCredentialProvider(Configuration);
 
@@ -62,7 +62,7 @@ namespace BotBuilder4KnowledgeBot
                 // IStorage dataStore = new Microsoft.Bot.Builder.Azure.AzureTableStorage("AzureTablesConnectionString", "TableName");
                 // IStorage dataStore = new Microsoft.Bot.Builder.Azure.AzureBlobStorage("AzureBlobConnectionString", "containerName");
 
-                options.Middleware.Add(new ConversationState<EchoState>(dataStore));
+                options.Middleware.Add(new ConversationState<BotState>(dataStore));
             });
         }
 
